@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlashFuel Biodiesel Manual</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+        header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        nav { background: #34495e; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
+        section { padding: 20px; max-width: 900px; margin: auto; background: white; margin-top: 20px; border-radius: 8px; }
+        h2 { color: #2c3e50; }
+        .toggle-section { cursor: pointer; padding: 10px; background: #ecf0f1; border-radius: 5px; margin-bottom: 10px; }
+        .content { display: none; padding: 10px 0; }
+        footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; }
+    </style>
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>FlashFuel Biodiesel Production Manual</h1>
+        <p>Build. Fuel. Drive.</p>
+    </header>
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#equipment">Equipment</a>
+        <a href="#safety">Safety</a>
+        <a href="#process">Production</a>
+    </nav>
+
+    <section id="overview">
+        <h2>Overview & Goals</h2>
+        <p>This manual guides you through producing biodiesel fuel from used cooking oil. Target: $1.35 per gallon, batch size: 25–30 gallons.</p>
+    </section>
+
+    <section id="equipment">
+        <h2>Required Equipment</h2>
+        <div class="toggle-section" onclick="toggleContent('equipmentList')">Show/Hide Equipment List</div>
+        <div id="equipmentList" class="content">
+            <ul>
+                <li>40–50 gal tank (HDPE or stainless)</li>
+                <li>Heater band (1500–2000W)</li>
+                <li>Electric stirrer or mixer</li>
+                <li>Transfer pump</li>
+                <li>Methoxide mixing container</li>
+                <li>Wash tank</li>
+                <li>Drying system (air bubbler)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="safety">
+        <h2>Safety Requirements</h2>
+        <ul>
+            <li>Wear gloves, goggles, and apron</li>
+            <li>Work in ventilated area</li>
+            <li>Store methanol in sealed metal container</li>
+            <li>Keep fire extinguisher nearby</li>
+        </ul>
+    </section>
+
+    <section id="process">
+        <h2>Production Process</h2>
+        <ol>
+            <li>Filter and dry used oil</li>
+            <li>Mix methanol and lye (methoxide)</li>
+            <li>Heat oil to 120°F, add methoxide while stirring</li>
+            <li>Let react for 1–2 hours, then settle 8–12 hours</li>
+            <li>Drain off glycerin</li>
+            <li>Wash biodiesel with water, let settle</li>
+            <li>Dry the fuel, then store it</li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FlashFuel. All rights reserved.</p>
+    
+    <section id="calculator">
+        <h2>Biodiesel Batch Calculator</h2>
+        <p>Enter the amount of oil (in gallons) to calculate required methanol, catalyst, and cost.</p>
+        <label for="oilInput">Gallons of Used Oil:</label>
+        <input type="number" id="oilInput" value="30" min="1" onchange="calculateBatch()" style="margin-left: 10px;">
+        <div style="margin-top: 15px;">
+            <p><strong>Methanol Needed:</strong> <span id="methanolOutput">6</span> gallons</p>
+            <p><strong>Catalyst Needed (NaOH):</strong> <span id="catalystOutput">1.5</span> lbs</p>
+            <p><strong>Estimated Total Cost:</strong> $<span id="costOutput">40.50</span></p>
+            <p><strong>Estimated Cost per Gallon:</strong> $<span id="perGallonOutput">1.35</span></p>
+        </div>
+    </section>
+
+    <script>
+        function calculateBatch() {
+            const oil = parseFloat(document.getElementById('oilInput').value);
+            const methanol = (oil * 0.2).toFixed(2);
+            const catalyst = (oil * 0.05).toFixed(2);
+            const cost = (oil * 1.35).toFixed(2);
+            const costPerGallon = (1.35).toFixed(2);
+
+            document.getElementById('methanolOutput').textContent = methanol;
+            document.getElementById('catalystOutput').textContent = catalyst;
+            document.getElementById('costOutput').textContent = cost;
+            document.getElementById('perGallonOutput').textContent = costPerGallon;
+        }
+    </script>
+
+
+    <section id="visuals">
+        <h2>Visual Aids</h2>
+        <p>Click any image to enlarge it. These diagrams help explain each step of the biodiesel process.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+            <a href="A_flowchart_diagram_titled_&quot;Biodiesel_Production_P.png" target="_blank">
+                <img src="A_flowchart_diagram_titled_&quot;Biodiesel_Production_P.png" alt="Process Flowchart" width="250">
+            </a>
+            <a href="A_technical_infographic_poster_titled_&quot;Biodiesel_P.png" target="_blank">
+                <img src="A_technical_infographic_poster_titled_&quot;Biodiesel_P.png" alt="Step-by-Step Infographic" width="250">
+            </a>
+            <a href="A_2D_digital_illustration_chart_displays_materials.png" target="_blank">
+                <img src="A_2D_digital_illustration_chart_displays_materials.png" alt="Materials Chart" width="250">
+            </a>
+        </div>
+    </section>
+
+    <section id="videos">
+        <h2>Video Walkthroughs</h2>
+        <p>Coming soon: embedded tutorials and step-by-step guides. For now, use placeholders or QR codes to link to external videos.</p>
+        <p><strong>Example:</strong> <a href="https://www.youtube.com/results?search_query=biodiesel+production" target="_blank">Watch biodiesel how-to videos on YouTube</a></p>
+    </section>
+
+</footer>
+</body>
+</html>
